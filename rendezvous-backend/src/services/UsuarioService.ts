@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import prismaClient from "../../prisma";
 
 interface UserRequest {
+    idUser?: string
     nomeUser: string;
     senha: string;
     perfilUser: string;
@@ -17,32 +18,49 @@ class UsuarioService {
             where: {
                 nomeUser: usuario.nomeUser
             }
-        })
+        });
         if (userAlreadyExists) {
             throw new Error("Usuário já está cadastrado")
         }
         const user = await prismaClient.usuario.create({
             data: usuario
-        })
+        });
         return user;
 
     }
 
-    public async consultar() {
-        return { OK: true }
+    public async consultar(idUser: string) {
+        const user = await prismaClient.usuario.findUnique({
+            where: { idUser: idUser }
+        });
+        return user;
     }
 
-    public async atualizar() {
-        return { OK: true }
+    public async atualizar(usuario: UserRequest) {
+        const user = await prismaClient.usuario.update({
+            where: {
+                idUser: usuario.idUser,
+            },
+            data: {
+                nomeUser: usuario.nomeUser,
+                senha: usuario.senha,
+                perfilUser: usuario.perfilUser
+            }
+        });
+        return user;
     }
 
-    public async remover() {
-        return { OK: true }
+    public async remover(idUser: string) {
+        const user = await prismaClient.usuario.delete({
+            where:{
+                idUser: idUser
+            }
+        })
+        return user;
     }
 
     public async listar() {
-        const users = prismaClient.usuario.findMany()
-        return users;
+        return await prismaClient.usuario.findMany();
     }
 
 }

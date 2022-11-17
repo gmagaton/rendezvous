@@ -15,8 +15,8 @@ router.post("/login", loginController.logar);
 router.get("/usuario", usuarioController.listar);
 router.post("/usuario", usuarioController.criar);
 router.put("/usuario", usuarioController.atualizar);
-router.get("/usuario/:id", usuarioController.consultar);
-router.delete("/usuario/:id", usuarioController.remover);
+router.get("/usuario/:idUser", usuarioController.consultar);
+router.delete("/usuario/:idUser", usuarioController.remover);
 
 router.get("/cardapio", cardapioController.listar);
 router.post("/cardapio", cardapioController.criar);
