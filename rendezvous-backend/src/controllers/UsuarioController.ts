@@ -3,14 +3,13 @@ import { usuarioService } from "../services/UsuarioService";
 
 class UsuarioController {
 
-  public criar(req: Request, res: Response) {
-    console.log(req.body);
-    const user = usuarioService.criar(req.body);
+  public async criar(req: Request, res: Response) {
+    const user = await usuarioService.criar(req.body);
     return res.json(user);
   }
 
-  public atualizar(req: Request, res: Response) {
-    const user = usuarioService.atualizar(req.body);
+  public async atualizar(req: Request, res: Response) {
+    const user = await usuarioService.atualizar(req.body);
     return res.json(user);
   }
 

@@ -25,6 +25,7 @@ model Produto {
   preco            Decimal
   descricaoProduto String
   imagemProduto    Bytes
+  cozinha          Boolean
   criacao          DateTime?  @default(now())
   alteracao        DateTime?  @default(now())
   Item             Item[]

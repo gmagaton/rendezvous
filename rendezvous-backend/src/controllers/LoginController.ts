@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
+import { loginService } from "../services/LoginService";
 
 class LoginController{
 
-  public logar(req:Request, res:Response) {
-    return res.json({
-      response: 'Login'
-    });
+  public async logar(req:Request, res:Response) {
+    const login = req.body;
+    res.json(await loginService.logar(login));
   }
 
 }
