@@ -52,7 +52,7 @@ class UsuarioService {
 
     public async remover(idUser: string) {
         const user = await prismaClient.usuario.delete({
-            where:{
+            where: {
                 idUser: idUser
             }
         })
