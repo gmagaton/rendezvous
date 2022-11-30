@@ -1,16 +1,10 @@
-import { Request, Response } from "express";
+import { Usuario } from "@prisma/client";
 import prismaClient from "../../prisma";
 
-interface UserRequest {
-    idUser?: string
-    nomeUser: string;
-    senha: string;
-    perfilUser: string;
-}
 
 class UsuarioService {
 
-    public async criar(usuario: UserRequest) {
+    public async criar(usuario: Usuario) {
         if (!usuario.nomeUser) {
             throw new Error("Nome do usuário deve ser informado")
         }
@@ -36,7 +30,7 @@ class UsuarioService {
         return user;
     }
 
-    public async atualizar(usuario: UserRequest) {
+    public async atualizar(usuario: Usuario) {
         const user = await prismaClient.usuario.update({
             where: {
                 idUser: usuario.idUser,

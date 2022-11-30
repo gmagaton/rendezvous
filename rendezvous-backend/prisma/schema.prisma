@@ -13,8 +13,6 @@ model Categoria {
   criacao       DateTime? @default(now())
   alteracao     DateTime? @default(now())
   produtos      Produto[]
-
-  @@map("categorias")
 }
 
 model Produto {
@@ -24,25 +22,20 @@ model Produto {
   nomeProduto      String
   preco            Decimal
   descricaoProduto String
-  imagemProduto    Bytes
+  imagemProduto    String //base64
   cozinha          Boolean
   criacao          DateTime?  @default(now())
   alteracao        DateTime?  @default(now())
   Item             Item[]
-
-  @@map("produtos")
 }
 
 model Comanda {
   idComanda  String   @id @default(uuid())
   numeroMesa Int
-  status     Boolean
-  draft      Boolean
+  aberta     Boolean
   usuario    Usuario? @relation(fields: [idUser], references: [idUser])
   idUser     String
   Item       Item[]
-
-  @@map("comandas")
 }
 
 model Item {
@@ -52,8 +45,7 @@ model Item {
   produto    Produto? @relation(fields: [idProduto], references: [idProduto])
   idProduto  String
   quantidade Int
-
-  @@map("itens")
+  preparado Boolean
 }
 
 model Usuario {
@@ -64,6 +56,4 @@ model Usuario {
   criacao    DateTime? @default(now())
   alteracao  DateTime? @default(now())
   Comanda    Comanda[]
-
-  @@map("users")
 }

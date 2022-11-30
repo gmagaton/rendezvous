@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "categorias" (
+CREATE TABLE "Categoria" (
     "idCategoria" TEXT NOT NULL PRIMARY KEY,
     "nomeCategoria" TEXT NOT NULL,
     "criacao" DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -7,40 +7,41 @@ CREATE TABLE "categorias" (
 );
 
 -- CreateTable
-CREATE TABLE "produtos" (
+CREATE TABLE "Produto" (
     "idProduto" TEXT NOT NULL PRIMARY KEY,
     "idCategoria" TEXT NOT NULL,
     "nomeProduto" TEXT NOT NULL,
     "preco" DECIMAL NOT NULL,
     "descricaoProduto" TEXT NOT NULL,
-    "imagemProduto" BLOB NOT NULL,
+    "imagemProduto" TEXT NOT NULL,
+    "cozinha" BOOLEAN NOT NULL,
     "criacao" DATETIME DEFAULT CURRENT_TIMESTAMP,
     "alteracao" DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT "produtos_idCategoria_fkey" FOREIGN KEY ("idCategoria") REFERENCES "categorias" ("idCategoria") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Produto_idCategoria_fkey" FOREIGN KEY ("idCategoria") REFERENCES "Categoria" ("idCategoria") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
-CREATE TABLE "comandas" (
+CREATE TABLE "Comanda" (
     "idComanda" TEXT NOT NULL PRIMARY KEY,
     "numeroMesa" INTEGER NOT NULL,
-    "status" BOOLEAN NOT NULL,
-    "draft" BOOLEAN NOT NULL,
+    "aberta" BOOLEAN NOT NULL,
     "idUser" TEXT NOT NULL,
-    CONSTRAINT "comandas_idUser_fkey" FOREIGN KEY ("idUser") REFERENCES "users" ("idUser") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Comanda_idUser_fkey" FOREIGN KEY ("idUser") REFERENCES "Usuario" ("idUser") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
-CREATE TABLE "itens" (
+CREATE TABLE "Item" (
     "idItem" TEXT NOT NULL PRIMARY KEY,
     "idComanda" TEXT NOT NULL,
     "idProduto" TEXT NOT NULL,
     "quantidade" INTEGER NOT NULL,
-    CONSTRAINT "itens_idComanda_fkey" FOREIGN KEY ("idComanda") REFERENCES "comandas" ("idComanda") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "itens_idProduto_fkey" FOREIGN KEY ("idProduto") REFERENCES "produtos" ("idProduto") ON DELETE RESTRICT ON UPDATE CASCADE
+    "preparado" BOOLEAN NOT NULL,
+    CONSTRAINT "Item_idComanda_fkey" FOREIGN KEY ("idComanda") REFERENCES "Comanda" ("idComanda") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Item_idProduto_fkey" FOREIGN KEY ("idProduto") REFERENCES "Produto" ("idProduto") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
-CREATE TABLE "users" (
+CREATE TABLE "Usuario" (
     "idUser" TEXT NOT NULL PRIMARY KEY,
     "nomeUser" TEXT NOT NULL,
     "senha" TEXT NOT NULL,
