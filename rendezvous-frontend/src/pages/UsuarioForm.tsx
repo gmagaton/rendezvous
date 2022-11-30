@@ -77,7 +77,6 @@ function UsuarioForm() {
             alert('Confirmação de senha inválida');
             return;
         }
-        console.log(data);
 
         usuarioService.salvar(data)
             .then(() => {

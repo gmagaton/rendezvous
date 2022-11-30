@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormLabel, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import UsuarioService, { UsuarioModel } from "../services/UsuarioService";
 import Menu from './Menu';
 
-function Usuario() {
+function Usuarios() {
     const navigate = useNavigate();
     const [usuarios, setAllUsuarios] = useState<UsuarioModel[]>([]);
     const usuarioService = new UsuarioService();
@@ -53,7 +53,6 @@ function Usuario() {
                             </tr>
                         </thead>
                         <tbody>
-
                             {usuarios.map((u) => (
                                 <tr key={u.idUser}>
                                     <td>{u.idUser}</td>
@@ -90,4 +89,4 @@ function Usuario() {
     }
 }
 
-export default Usuario;
+export default Usuarios;
