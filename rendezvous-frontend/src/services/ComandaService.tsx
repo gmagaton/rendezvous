@@ -10,6 +10,10 @@ export type ComandaModel = {
 export default class ComandaService {
     private uri: string = "http://localhost:3333/comanda";
 
+    buscar(idComanda: string) {
+        return axios.get(this.uri + "/" + idComanda);
+    }
+
     listar() {
         return axios.get(this.uri);
     }

@@ -40,11 +40,11 @@ model Comanda {
 
 model Item {
   idItem     String   @id @default(uuid())
-  comanda    Comanda? @relation(fields: [idComanda], references: [idComanda])
+  comanda    Comanda? @relation(fields: [idComanda], references: [idComanda], onDelete: Cascade)
   idComanda  String
   produto    Produto? @relation(fields: [idProduto], references: [idProduto])
   idProduto  String
-  quantidade Int
+  quantidade Decimal
   preparado Boolean
 }
 

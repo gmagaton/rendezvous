@@ -24,6 +24,7 @@ function UsuarioForm() {
                 setValue("perfilUser", response.data.perfilUser);
                 setValue("senha", response.data.senha);
                 setValue("confirmacaoSenha", response.data.senha);
+                return;
             });
     }
 

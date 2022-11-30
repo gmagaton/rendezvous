@@ -23,15 +23,19 @@ function ProdutoForm() {
 
     if (idProduto != null) {
         produtoService.buscar(idProduto)
-            .then((response) => {
-                setValue("idProduto", response.data.idProduto);
-                setValue("idCategoria", response.data.idCategoria);
-                setValue("nomeProduto", response.data.nomeProduto);
-                setValue("preco", response.data.preco);
-                setValue("descricaoProduto", response.data.descricaoProduto);
-                setValue("imagemProduto", response.data.imagemProduto);
-                setValue("cozinha", response.data.cozinha);
-            });
+            .then((response) => (
+                setValuesProduto(response.data)
+            ));
+    }
+
+    function setValuesProduto(produto: ProdutoModel) {
+        setValue("idProduto", produto.idProduto);
+        setValue("idCategoria", produto.idCategoria);
+        setValue("nomeProduto", produto.nomeProduto);
+        setValue("preco", produto.preco);
+        setValue("descricaoProduto", produto.descricaoProduto);
+        setValue("imagemProduto", produto.imagemProduto);
+        setValue("cozinha", produto.cozinha);
     }
 
     useEffect(() => {

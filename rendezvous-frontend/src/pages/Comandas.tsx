@@ -82,7 +82,7 @@ function Comandas() {
             });
     }
     function novoPedido(c: ComandaModel) {
-        navigate('/comanda/pedido/:idComanda');
+        navigate('/comanda/pedido/' + c.idComanda);
     }
 }
 export default Comandas;

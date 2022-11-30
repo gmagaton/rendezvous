@@ -7,6 +7,7 @@ import { cozinhaController } from "./controllers/CozinhaController";
 import { contaController } from "./controllers/ContaController";
 import { cozinheiroController } from "./controllers/CozinheiroController";
 import { categoriaController } from "./controllers/CategoriaController";
+import { itemController } from "./controllers/ItemController";
 
 const router: Router = Router()
 
@@ -32,9 +33,18 @@ router.get("/produto/:idProduto", produtoController.consultar);
 router.delete("/produto/:idProduto", produtoController.remover);
 
 router.get("/comanda", comandaController.listar);
+router.get("/comanda/:idComanda", comandaController.consultar);
 router.post("/comanda", comandaController.abrir);
 router.put("/comanda", comandaController.atualizar);
 router.delete("/comanda/:idComanda", comandaController.remover);
+
+router.post("/item", itemController.criar);
+router.get("/item", itemController.listar);
+router.get("/item/:idItem", itemController.consultar);
+router.get("/item/comanda/:idComanda", itemController.consultaItensComanda);
+router.get("/item/preparo", itemController.consultaItensParaPreparo);
+router.put("/item", itemController.atualizar);
+router.delete("/item/:idItem", itemController.remover);
 
 router.post("/cozinha/solicitar", cozinhaController.solicitar);
 router.post("/cozinheiro/preparar", cozinheiroController.preparar);

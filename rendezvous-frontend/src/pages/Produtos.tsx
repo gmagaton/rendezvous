@@ -61,7 +61,7 @@ function Produtos() {
                         </thead>
                         <tbody>
                             {produtos.map((p) => (
-                                <tr key={p.idProduto}>
+                                <tr key={p.idProduto.toString()}>
                                     <td>{p.idProduto}</td>
                                     <td>{p.nomeProduto}</td>
                                     <td>{p.descricaoProduto}</td>

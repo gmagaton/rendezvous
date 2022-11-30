@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export type ProdutoModel = {
-    idProduto: string,
+    idProduto: String,
     idCategoria: string,
     nomeProduto: string,
     preco: number,
@@ -15,11 +15,11 @@ export type ProdutoModel = {
 export default class ProdutoService {
     private uri: string = "http://localhost:3333/produto";
 
-    listar() {
+    async listar() {
         return axios.get(this.uri)
     }
 
-    remover(id: string) {
+    remover(id: String) {
         return axios.delete(this.uri + "/" + id);
     }
 
