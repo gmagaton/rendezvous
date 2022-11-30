@@ -20,7 +20,7 @@ function Login(props: any) {
 
         service.login(data.nomeUser, data.senha)
             .then(() => {
-                navigate("/usuario");
+                navigate("/home");
             })
             .catch(function (e) {
                 setError(e.response.data.error);

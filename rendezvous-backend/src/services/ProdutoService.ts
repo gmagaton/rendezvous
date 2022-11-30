@@ -29,7 +29,8 @@ class ProdutoService {
                 preco: produto.preco,
                 descricaoProduto: produto.descricaoProduto,
                 imagemProduto: produto.imagemProduto,
-                cozinha: produto.cozinha
+                cozinha: produto.cozinha,
+                alteracao: new Date()
             }
         });
         return p;

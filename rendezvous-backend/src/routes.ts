@@ -31,9 +31,10 @@ router.put("/produto", produtoController.atualizar);
 router.get("/produto/:idProduto", produtoController.consultar);
 router.delete("/produto/:idProduto", produtoController.remover);
 
-router.post("/comanda/abrir", comandaController.abrir);
-router.post("/comanda/encerrar", comandaController.encerrar);
-router.post("/comanda/excluir", comandaController.excluir);
+router.get("/comanda", comandaController.listar);
+router.post("/comanda", comandaController.abrir);
+router.put("/comanda", comandaController.atualizar);
+router.delete("/comanda/:idComanda", comandaController.remover);
 
 router.post("/cozinha/solicitar", cozinhaController.solicitar);
 router.post("/cozinheiro/preparar", cozinheiroController.preparar);

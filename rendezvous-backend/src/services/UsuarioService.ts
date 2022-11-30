@@ -38,7 +38,8 @@ class UsuarioService {
             data: {
                 nomeUser: usuario.nomeUser,
                 senha: usuario.senha,
-                perfilUser: usuario.perfilUser
+                perfilUser: usuario.perfilUser,
+                alteracao: new Date()
             }
         });
         return user;

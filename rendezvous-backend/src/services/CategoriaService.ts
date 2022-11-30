@@ -24,7 +24,8 @@ class CategoriaService {
                 idCategoria: categoria.idCategoria,
             },
             data: {
-                nomeCategoria: categoria.nomeCategoria
+                nomeCategoria: categoria.nomeCategoria,
+                alteracao: new Date()
             }
         });
         return c;

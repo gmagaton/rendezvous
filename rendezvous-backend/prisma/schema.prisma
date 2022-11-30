@@ -31,7 +31,7 @@ model Produto {
 
 model Comanda {
   idComanda  String   @id @default(uuid())
-  numeroMesa Int
+  numeroMesa Decimal
   aberta     Boolean
   usuario    Usuario? @relation(fields: [idUser], references: [idUser])
   idUser     String

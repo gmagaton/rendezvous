@@ -57,18 +57,10 @@ function ComandaFechar() {
 
                 </Form>
             </Row>
-            <Row>
-                <Col>
-                    <Button variant="primary" onClick={voltar}>Voltar</Button>
-                </Col>
-            </Row>
         </Container>
     )
 
     function fechar() {
-        navigate('/comanda');
-    }
-    function voltar() {
         navigate('/comanda');
     }
 }

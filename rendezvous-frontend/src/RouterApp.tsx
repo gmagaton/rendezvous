@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CategoriaForm from './pages/CategoriaForm';
-import Comanda from './pages/Comanda';
+import Comandas from './pages/Comandas';
 import ComandaAbrir from './pages/ComandaAbrir';
 import ComandaFechar from './pages/ComandaFechar';
 import ComandaPedido from './pages/ComandaPedido';
@@ -34,10 +34,10 @@ function RouterApp() {
           <Route path='/produto/form' element={<ProdutoForm />} />
           <Route path='/produto/form/:idProduto' element={<ProdutoForm />} />
           
-          <Route path='/comanda' element={<Comanda />} />
+          <Route path='/comanda' element={<Comandas />} />
           <Route path='/comanda/abrir' element={<ComandaAbrir />} />
-          <Route path='/comanda/fechar' element={<ComandaFechar />} />
-          <Route path='/comanda/pedido' element={<ComandaPedido />} />
+          <Route path='/comanda/fechar/:idComanda' element={<ComandaFechar />} />
+          <Route path='/comanda/pedido/:idComanda' element={<ComandaPedido />} />
           
           <Route path='/cozinha' element={<Cozinha />} />
         </Routes>

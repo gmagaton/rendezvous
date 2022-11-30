@@ -21,6 +21,9 @@ function Menu() {
             <Nav.Item>
                 <Nav.Link href="/cozinha">Cozinha</Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+                <Nav.Link href="/login">Sair</Nav.Link>
+            </Nav.Item>
         </Nav>
     )
 }
