@@ -65,7 +65,7 @@ function Produtos() {
                                     <td>{p.idProduto}</td>
                                     <td>{p.nomeProduto}</td>
                                     <td>{p.descricaoProduto}</td>
-                                    <td>{p.idCategoria}</td>
+                                    <td>{p.categoria.nomeCategoria}</td>
                                     {p.cozinha ? <td>Sim</td> : <td>Não</td>}
                                     <td>{p.criacao}</td>
                                     <td>{p.alteracao}</td>

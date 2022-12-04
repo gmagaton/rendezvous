@@ -1,8 +1,10 @@
 import axios from "axios";
+import { CategoriaModel } from "./CategoriaService";
 
 export type ProdutoModel = {
     idProduto: String,
     idCategoria: string,
+    categoria: CategoriaModel,
     nomeProduto: string,
     preco: number,
     descricaoProduto: string,

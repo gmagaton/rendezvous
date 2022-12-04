@@ -23,7 +23,7 @@ CREATE TABLE "Produto" (
 -- CreateTable
 CREATE TABLE "Comanda" (
     "idComanda" TEXT NOT NULL PRIMARY KEY,
-    "numeroMesa" INTEGER NOT NULL,
+    "numeroMesa" DECIMAL NOT NULL,
     "aberta" BOOLEAN NOT NULL,
     "idUser" TEXT NOT NULL,
     CONSTRAINT "Comanda_idUser_fkey" FOREIGN KEY ("idUser") REFERENCES "Usuario" ("idUser") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -34,9 +34,9 @@ CREATE TABLE "Item" (
     "idItem" TEXT NOT NULL PRIMARY KEY,
     "idComanda" TEXT NOT NULL,
     "idProduto" TEXT NOT NULL,
-    "quantidade" INTEGER NOT NULL,
+    "quantidade" DECIMAL NOT NULL,
     "preparado" BOOLEAN NOT NULL,
-    CONSTRAINT "Item_idComanda_fkey" FOREIGN KEY ("idComanda") REFERENCES "Comanda" ("idComanda") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Item_idComanda_fkey" FOREIGN KEY ("idComanda") REFERENCES "Comanda" ("idComanda") ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT "Item_idProduto_fkey" FOREIGN KEY ("idProduto") REFERENCES "Produto" ("idProduto") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 

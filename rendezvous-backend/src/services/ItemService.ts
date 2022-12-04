@@ -4,19 +4,16 @@ import prismaClient from "../../prisma";
 class ItemService {
 
     public async criar(item: Item) {
-        console.log("Item criar");
-        console.log(item);
         const user = await prismaClient.item.create({
             data: item
         });
-        console.log("create");
-        console.log(user);
         return user;
     }
 
     public async consultaItensComanda(idComanda: string) {
         const itens = await prismaClient.item.findMany({
-            where: { idComanda: idComanda }
+            where: { idComanda: idComanda },
+            include: { produto: true }
         });
         return itens;
     }

@@ -13,7 +13,8 @@ class ProdutoService {
 
     public async consultar(idProduto: string) {
         const produto = await prismaClient.produto.findUnique({
-            where: { idProduto: idProduto }
+            where: { idProduto: idProduto },
+            include: { categoria: true }
         });
         return produto;
     }
@@ -46,7 +47,9 @@ class ProdutoService {
     }
 
     public async listar() {
-        return await prismaClient.produto.findMany();
+        return await prismaClient.produto.findMany({
+            include: { categoria: true }
+        });
     }
 
 }

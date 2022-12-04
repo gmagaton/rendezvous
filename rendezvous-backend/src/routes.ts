@@ -4,8 +4,6 @@ import { produtoController } from "./controllers/ProdutoController";
 import { usuarioController } from "./controllers/UsuarioController";
 import { comandaController } from "./controllers/ComandaController";
 import { cozinhaController } from "./controllers/CozinhaController";
-import { contaController } from "./controllers/ContaController";
-import { cozinheiroController } from "./controllers/CozinheiroController";
 import { categoriaController } from "./controllers/CategoriaController";
 import { itemController } from "./controllers/ItemController";
 
@@ -46,9 +44,7 @@ router.get("/item/preparo", itemController.consultaItensParaPreparo);
 router.put("/item", itemController.atualizar);
 router.delete("/item/:idItem", itemController.remover);
 
-router.post("/cozinha/solicitar", cozinhaController.solicitar);
-router.post("/cozinheiro/preparar", cozinheiroController.preparar);
-router.post("/cozinheiro/pronto", cozinheiroController.pronto);
-router.post("/conta/fechar", contaController.fechar);
+router.get("/cozinha", cozinhaController.listar);
+router.put("/cozinha/preparado/:idItem", cozinhaController.preparado);
 
 export { router };

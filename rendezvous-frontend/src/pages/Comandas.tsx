@@ -43,7 +43,7 @@ function Comandas() {
                         <thead>
                             <tr>
                                 <th>Mesa</th>
-                                <th>Status</th>
+                                <th>Aberta</th>
                                 <th>Fechar Conta</th>
                                 <th>Novo Pedido</th>
                                 <th>Excluir</th>
@@ -69,7 +69,7 @@ function Comandas() {
         navigate('/comanda/abrir');
     }
     function fechar(c: ComandaModel) {
-        navigate('/comanda/fechar/:idComanda');
+        navigate('/comanda/fechar/' + c.idComanda);
     }
     function excluir(c: ComandaModel) {
         comandaService.remover(c.idComanda)

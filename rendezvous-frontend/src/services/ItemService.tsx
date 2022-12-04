@@ -1,17 +1,14 @@
 import axios from "axios";
-
-export type ComandaModel = {
-    idComanda: string,
-    numeroMesa: number,
-    aberta: boolean,
-    idUser: string
-}
+import { ComandaModel } from "./ComandaService";
+import { ProdutoModel } from "./ProdutoService";
 
 export type ItemModel = {
     idItem: String,
     idComanda: string,
-    idProduto: string,
-    quantidade: Number,
+    comanda: ComandaModel,
+    idProduto: number,
+    produto: ProdutoModel,
+    quantidade: number,
     preparado: boolean
 }
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export type ComandaModel = {
+    current: any;
     idComanda: string,
     numeroMesa: number,
     aberta: boolean,
@@ -29,7 +30,7 @@ export default class ComandaService {
             idUser: data.idUser,
             aberta: false
         };
-        return axios.post(this.uri, payload);
+        return axios.put(this.uri, payload);
     }
 
     abrir(data: ComandaModel) {
